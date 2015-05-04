@@ -52,7 +52,13 @@ function! pyencoding#update_encoding()
 		let l:def_range = num_lines
 	endif
 
-	silent! exe "1,". l:def_range ."s/\\(coding[:=]\\s*\\)[-a-zA-Z0-9]\\+ /\\1" . &fileencoding . " "
+	if &fileencoding == ""
+		let l:fileencoding = "utf-8" " Lo ponemos a pelo en este caso
+	else
+		let l:fileencoding = &fileencoding
+	endif
+
+	silent! exe "1,". l:def_range ."s/\\(coding[:=]\\s*\\)[-a-zA-Z0-9]\\+ /\\1" . l:fileencoding . " "
 endfun
 
 command! Pyencoding call pyencoding#create_or_update_encoding()
