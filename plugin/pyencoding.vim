@@ -16,6 +16,16 @@ set cpo&vim
 function! pyencoding#create_or_update_encoding()
 	let l:cursor_pos = getpos('.')
 	call setpos('.', [0, 1, 1])
+
+	" Si ya tenemos puesta la codificación, no hacemos nada
+	if search("coding[:=]\\s*". &fileencoding  ." ", 'c', 2)
+		if &fileencoding != ""
+			call setpos('.', l:cursor_pos)
+			return
+		endif
+	endif
+
+	call setpos('.', [0, 1, 1])
 	if search("coding[:=]\\s*[-a-zA-Z0-9]\\+ ", 'c', 2)
 		" Lo ha encontrado, actualizamos
 		call pyencoding#update_encoding()
