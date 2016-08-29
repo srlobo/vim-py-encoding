@@ -1,7 +1,7 @@
 " ============================================================================
 " File:        pyencoding.vim
 " Description: vim global plugin that writes the encoding on the python header
-" Maintainer:  Félix Ortega <fortegah at gmail dot com>
+" Maintainer:  FÃ©lix Ortega <fortegah at gmail dot com>
 " License:     GPLv2
 "
 " ============================================================================
@@ -45,7 +45,7 @@ function! pyencoding#create_encoding()
 endfun
 
 function! pyencoding#update_encoding()
-	" Obtenemos el número de líneas
+	" Obtenemos el nÃºmero de lÃ­neas
 	let l:def_range = 2
 	let l:num_lines = line('$')
 	if l:num_lines < l:def_range
