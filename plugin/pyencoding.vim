@@ -48,6 +48,7 @@ function! pyencoding#create_encoding()
 
 	if &fileencoding == ""
 		let l:fileencoding = "utf-8" " Lo ponemos a pelo en este caso
+		set fileencoding=utf-8 " Y ponemos el filencoding adecuado
 	else
 		let l:fileencoding = &fileencoding
 	endif
