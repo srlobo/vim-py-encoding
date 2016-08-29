@@ -32,6 +32,7 @@ function! pyencoding#create_or_update_encoding()
 	else
 		" No lo ha encontrado, lo creamos
 		call pyencoding#create_encoding()
+		let l:cursor_pos[1] = l:cursor_pos[1]+1
 	endif
 	call setpos('.', l:cursor_pos)
 endfun
